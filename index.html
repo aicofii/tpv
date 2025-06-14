@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>收银系统</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 id="title">收银系统</h1>
+            <div class="header-buttons">
+                <button onclick="showProducts()" title="商品 (F1)"><i class="fas fa-box"></i> 商品 F1</button>
+                <button onclick="showCustomers()" title="客户 (F2)"><i class="fas fa-users"></i> 客户 F2</button>
+                <button onclick="showReceipts()" title="单据列表 (F3)"><i class="fas fa-file-alt"></i> 单据列表 F3</button>
+                <button onclick="showAccounting()" title="记账列表 (F4)"><i class="fas fa-calculator"></i> 记账列表 F4</button>
+                <button onclick="issueInvoice()" title="开发票 (F5)"><i class="fas fa-receipt"></i> 开发票 F5</button>
+                <button onclick="switchUser()" title="切换用户 (F11)"><i class="fas fa-user-cog"></i> 切换用户 F11</button>
+                <button onclick="openCashDrawer()" title="钱箱 (F12)"><i class="fas fa-cash-register"></i> 钱箱 F12</button>
+                <button onclick="toggleLanguage()" id="language-toggle" title="切换语言 / Cambiar Idioma"><span id="flag-icon">🇪🇸</span></button>
+            </div>
+        </div>
+        <div class="content">
+            <table>
+                <tr>
+                    <th id="thCode">编码/条码</th>
+                    <th id="thQuantity">数量</th>
+                    <th id="thStock">库存</th>
+                    <th id="thUnitPrice">单价</th>
+                    <th id="thDiscount">折扣</th>
+                    <th id="thTaxRate">税率</th>
+                    <th id="thName">名称</th>
+                    <th id="thDiscountTotal">折扣值</th>
+                    <th id="thTotal">总计</th>
+                    <th id="thUnit">单位</th>
+                    <th id="thOperation">操作</th>
+                </tr>
+                <tbody id="items"></tbody>
+            </table>
+            <div class="summary">
+                <p>Total Items: <span id="totalItems">0</span></p>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="total-display">
+                <span id="footerTotal">总计: </span>
+                <span id="footerAmount">0.00 元</span>
+            </div>
+            <div>
+                <button onclick="addItem()">添加商品</button>
+                <button onclick="clearItems()">清空</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
