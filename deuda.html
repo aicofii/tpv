@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">记账列表</title>
+    <link rel="stylesheet" href="deuda.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 id="title">记账列表</h1>
+            <div class="header-buttons">
+                <button id="search-btn">查询</button>
+                <button id="batch-settle-btn">批量结算</button>
+            </div>
+        </div>
+        <div class="content">
+            <div class="table-container">
+                <table class="deuda-table">
+                    <thead>
+                        <tr>
+                            <th id="thDebtId">记录ID</th>
+                            <th id="thCustomer">客户</th>
+                            <th id="thDatetime">日期时间</th>
+                            <th id="thAmount">金额</th>
+                            <th id="thStatus">状态</th>
+                            <th id="thOperation">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="debt-list"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="debtModal" style="display: none;">
+        <div class="modal-content">
+            <h2>记账详情</h2>
+            <table class="modal-table">
+                <tbody id="debtDetails"></tbody>
+            </table>
+            <button class="modal-close-btn">关闭</button>
+        </div>
+    </div>
+
+    <script src="deuda.js"></script>
+</body>
+</html>

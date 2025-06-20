@@ -1,0 +1,54 @@
+.button-container {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.add-product-btn {
+    background-color: #10b981;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    width: auto;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.add-product-btn:hover {
+    background-color: #059669;
+}
+
+.modal-content form {
+    display: grid;
+    gap: 15px;
+}
+
+.modal-content label {
+    display: flex;
+    flex-direction: column;
+    color: #d1d5db;
+}
+
+.modal-content input {
+    padding: 8px;
+    border: 1px solid #3b3b4f;
+    border-radius: 5px;
+    background-color: #374151;
+    color: #ffffff;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.modal-confirm-btn {
+    background-color: #10b981;
+    color: #ffffff;
+}
+
+.modal-confirm-btn:hover {
+    background-color: #059669;
+}

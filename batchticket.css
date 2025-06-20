@@ -1,0 +1,493 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #1e1e2e;
+}
+
+.container {
+    width: calc(100% - 80px);
+    margin: 20px 40px;
+    background-color: #2a2a3c;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 40px);
+}
+
+.header {
+    background-color: #3b82f6;
+    color: #ffffff;
+    padding: 0;
+    height: 60px;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.header h1 {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 24px;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+    padding-right: 20px;
+    align-items: center;
+}
+
+.header-buttons button {
+    padding: 8px 12px;
+    background-color: #ffffff;
+    color: #3b82f6;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.header-buttons button:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-1px);
+}
+
+.search-section {
+    padding: 20px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    background-color: #2a2a3c;
+    border-bottom: 1px solid #3b3b4f;
+}
+
+.search-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+    min-width: 150px;
+}
+
+.search-field label {
+    font-size: 14px;
+    color: #d1d5db;
+}
+
+.search-field input {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #374151;
+    color: #d1d5db;
+    font-size: 14px;
+}
+
+.search-field input:focus {
+    outline: none;
+    background-color: #4b5563;
+}
+
+#search-confirm-btn, #search-reset-btn {
+    padding: 10px;
+    background-color: #10b981;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    align-self: flex-end;
+}
+
+#search-confirm-btn:hover, #search-reset-btn:hover {
+    background-color: #059669;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.left-container, .right-container {
+    flex: 1;
+    background-color: #2a2a3c;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.left-container h2, .right-container h2 {
+    margin: 0;
+    padding: 10px 20px;
+    color: #ffffff;
+    font-size: 20px;
+    background-color: #3b82f6;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.table-container {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.right-container .table-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.right-container .table-container::-webkit-scrollbar-track {
+    background: #2a2a3c;
+}
+
+.right-container .table-container::-webkit-scrollbar-thumb {
+    background: #4b5563;
+    border-radius: 4px;
+}
+
+.right-container .table-container::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #3b3b4f;
+    padding: 12px;
+    text-align: center;
+    color: #d1d5db;
+}
+
+th {
+    background-color: #3b82f6;
+    color: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+tr {
+    height: 50px;
+}
+
+.left-container #thDebtId, .left-container td:nth-child(1) { width: 25%; }
+.left-container #thDatetime, .left-container td:nth-child(2) { width: 30%; }
+.left-container #thCustomer, .left-container td:nth-child(3) { width: 25%; }
+.left-container #thAmount, .left-container td:nth-child(4) { width: 10%; }
+.left-container #thOperation, .left-container td:nth-child(5) { width: 10%; }
+
+.right-container #thOperation, .right-container td:nth-child(1) { width: 10%; }
+.right-container #thDebtId, .right-container td:nth-child(2) { width: 25%; }
+.right-container #thDatetime, .right-container td:nth-child(3) { width: 30%; }
+.right-container #thCustomer, .right-container td:nth-child(4) { width: 25%; }
+.right-container #thAmount, .right-container td:nth-child(5) { width: 10%; }
+
+.transfer-btn {
+    padding: 5px 10px;
+    background-color: #3b82f6;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    min-width: 60px;
+}
+
+.transfer-btn:hover {
+    background-color: #2563eb;
+}
+
+.summary {
+    padding: 20px 80px 20px 20px;
+    text-align: right;
+    font-size: 18px;
+    color: #d1d5db;
+    background-color: #2a2a3c;
+    border-top: 1px solid #3b3b4f;
+    box-sizing: border-box;
+}
+
+.summary p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.summary #total-amount {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+#batch-settle-btn {
+    padding: 10px 20px;
+    margin: 20px;
+    background-color: #10b981;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    align-self: flex-end;
+}
+
+#batch-settle-btn:hover {
+    background-color: #059669;
+}
+
+#batch-settle-btn:disabled {
+    background-color: #6b7280;
+    cursor: not-allowed;
+}
+
+/* 模态框样式 */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+}
+
+.modal-content {
+    background-color: #2a2a3c;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    color: #d1d5db;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: #ffffff;
+}
+
+/* 模态框支付按钮样式 */
+.payment-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.modal-payment-btn {
+    padding: 10px 20px;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.modal-payment-btn.card {
+    background-color: #3b82f6;
+}
+
+.modal-payment-btn.card:hover {
+    background-color: #2563eb;
+}
+
+.modal-payment-btn.cash {
+    background-color: #f59e0b;
+}
+
+.modal-payment-btn.cash:hover {
+    background-color: #d97706;
+}
+
+.modal-payment-btn.account {
+    background-color: #8b5cf6;
+}
+
+.modal-payment-btn.account:hover {
+    background-color: #7c3aed;
+}
+
+.modal-payment-btn.selected {
+    filter: brightness(1.2);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.modal-close-btn {
+    padding: 10px 20px;
+    background-color: #6b7280;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    display: block;
+    margin: 20px auto 0;
+}
+
+.modal-close-btn:hover {
+    background-color: #4b5563;
+}
+
+.modal-close-btn.selected {
+    background-color: #e5e7eb;
+    color: #3b82f6;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* 现金支付模态框和数字键盘样式 */
+.cash-modal-content {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+    max-width: 700px;
+    width: 90%;
+    padding: 20px;
+}
+
+.cash-modal-content .amount-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cash-modal-content .amount-section div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cash-modal-content .amount-section label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    min-width: 100px;
+}
+
+.cash-modal-content .amount-section span {
+    font-size: 16px;
+    color: #d1d5db;
+}
+
+.cash-modal-content .numeric-keypad {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.numeric-btn {
+    padding: 15px;
+    font-size: 18px;
+    background-color: #3b82f6;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.numeric-btn:hover {
+    background-color: #2563eb;
+    transform: translateY(-1px);
+}
+
+.numeric-btn:active {
+    transform: translateY(0);
+}
+
+.numeric-btn:focus {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+.numeric-btn.delete {
+    background-color: #ef4444;
+}
+
+.numeric-btn.delete:hover {
+    background-color: #dc2626;
+}
+
+.numeric-btn.dot {
+    background-color: #6b7280;
+}
+
+.numeric-btn.dot:hover {
+    background-color: #4b5563;
+}
+
+.numeric-btn.selected {
+    filter: brightness(1.2);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* 确定按钮样式 */
+.confirm-btn {
+    padding: 10px 20px;
+    background-color: #10b981;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.confirm-btn:hover {
+    background-color: #059669;
+}
+
+.confirm-btn.selected {
+    filter: brightness(1.2);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* 按钮容器样式 */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+    .cash-modal-content {
+        flex-direction: column;
+        max-width: 90%;
+    }
+
+    .cash-modal-content .numeric-keypad {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .numeric-btn {
+        padding: 10px;
+        font-size: 16px;
+    }
+}

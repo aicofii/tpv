@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品列表</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="product.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>产品列表</h1>
+            <div class="header-buttons">
+                <button onclick="window.location.href='index.html'">返回</button>
+            </div>
+        </div>
+        <div class="content">
+            <div class="table-container">
+                <div class="button-container">
+                    <button class="add-product-btn" onclick="showAddProductModal()">增加产品</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>产品代码</th>
+                            <th>条码</th>
+                            <th>品名</th>
+                            <th>类别</th>
+                            <th>价格</th>
+                            <th>税率</th>
+                            <th>单位</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="product-list"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="product.js"></script>
+</body>
+</html>

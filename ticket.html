@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>票据列表</title>
+    <link rel="stylesheet" href="ticket.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>票据列表</h1>
+            <div class="header-buttons">
+                <button id="search-btn">查询</button>
+                <button id="batch-invoice">批量开票</button>
+            </div>
+        </div>
+        <div class="content">
+            <div class="table-container">
+                <table class="ticket-table">
+                    <thead>
+                        <tr>
+                            <th id="thTicketId">票据ID</th>
+                            <th id="thType">类型</th>
+                            <th id="thDatetime">日期时间</th>
+                            <th id="thCustomer">客户</th>
+                            <th id="thPaymentMethod">支付方式</th>
+                            <th id="thAmount">金额</th>
+                            <th id="thOperation">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ticket-list">
+                        <!-- 票据列表将动态填充 -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="ticketModal" style="display: none;">
+        <div class="modal-content">
+            <h2>票据详情</h2>
+            <table class="pending-orders-table">
+                <tbody id="ticketDetails">
+                    <!-- 票据详情将动态填充 -->
+                </tbody>
+            </table>
+            <button class="modal-close-btn">关闭</button>
+        </div>
+    </div>
+
+    <script src="ticket.js"></script>
+</body>
+</html>

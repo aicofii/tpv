@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">批量结算</title>
+    <link rel="stylesheet" href="batchticket.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 id="title">批量结算</h1>
+            <div class="header-buttons">
+                <button id="back-btn">返回</button>
+            </div>
+        </div>
+        <div class="search-section">
+            <div class="search-field">
+                <label>记录ID</label>
+                <input type="text" id="search-debt-id" placeholder="输入记录ID">
+            </div>
+            <div class="search-field">
+                <label>客户名称</label>
+                <input type="text" id="search-customer" placeholder="输入客户名称">
+            </div>
+            <div class="search-field">
+                <label>金额</label>
+                <input type="number" id="search-amount" step="0.01" placeholder="输入金额">
+            </div>
+            <button id="search-confirm-btn">查询</button>
+            <button id="search-reset-btn">恢复</button>
+        </div>
+        <div class="content">
+            <div class="left-container">
+                <h2>未结算记录</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th id="thDebtId">记录ID</th>
+                                <th id="thDatetime">日期时间</th>
+                                <th id="thCustomer">客户</th>
+                                <th id="thAmount">金额</th>
+                                <th id="thOperation">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="left-debt-list"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="right-container">
+                <h2>已选记录</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th id="thOperation">操作</th>
+                                <th id="thDebtId">记录ID</th>
+                                <th id="thDatetime">日期时间</th>
+                                <th id="thCustomer">客户</th>
+                                <th id="thAmount">金额</th>
+                            </tr>
+                        </thead>
+                        <tbody id="right-debt-list"></tbody>
+                    </table>
+                </div>
+                <div class="summary">
+                    <p>总金额: <span id="total-amount">0.00</span></p>
+                </div>
+            </div>
+        </div>
+        <button id="batch-settle-btn">确认结算</button>
+    </div>
+    <script src="batchticket.js"></script>
+</body>
+</html>

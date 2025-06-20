@@ -1,0 +1,80 @@
+.button-container {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.add-customer-btn {
+    background-color: #10b981;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    width: auto;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.add-customer-btn:hover {
+    background-color: #059669;
+}
+
+.modal-content form {
+    display: grid;
+    gap: 12px;
+}
+
+.modal-content label {
+    display: flex;
+    flex-direction: column;
+    color: #d1d5db;
+}
+
+.modal-content input {
+    padding: 8px;
+    border: 1px solid #3b3b4f;
+    border-radius: 5px;
+    background-color: #374151;
+    color: #ffffff;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.modal-confirm-btn {
+    background-color: #10b981;
+    color: #ffffff;
+}
+
+.modal-confirm-btn:hover {
+    background-color: #059669;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #3b3b4f;
+    padding: 12px;
+    text-align: center;
+    color: #d1d5db;
+}
+
+th {
+    background-color: #3b82f6;
+    color: #ffffff;
+}
+
+td:nth-child(1) { width: 10%; } /* 客户代码 */
+td:nth-child(2) { width: 15%; } /* 公司名称 */
+td:nth-child(3) { width: 15%; } /* 商业名称 */
+td:nth-child(4) { width: 12%; } /* 税号 */
+td:nth-child(5) { width: 12%; } /* 电话 */
+td:nth-child(6) { width: 20%; } /* 地址 */
+td:nth-child(7) { width: 15%; } /* 邮箱 */
+td:nth-child(8) { width: 8%; } /* 操作 */

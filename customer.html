@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>客户列表</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="customer.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>客户列表</h1>
+            <div class="header-buttons">
+                <button id="back-btn">返回</button>
+            </div>
+        </header>
+        <main class="content">
+            <div class="button-container">
+                <button class="add-customer-btn" id="add-customer-btn">增加客户</button>
+            </div>
+            <table role="grid">
+                <thead>
+                    <tr>
+                        <th scope="col">客户代码</th>
+                        <th scope="col">公司名称</th>
+                        <th scope="col">商业名称</th>
+                        <th scope="col">税号</th>
+                        <th scope="col">电话</th>
+                        <th scope="col">地址</th>
+                        <th scope="col">邮箱</th>
+                        <th scope="col">操作</th>
+                    </tr>
+                </thead>
+                <tbody id="customer-list"></tbody>
+            </table>
+        </main>
+    </div>
+    <script src="customer.js"></script>
+</body>
+</html>

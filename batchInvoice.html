@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>批量开票</title>
+    <link rel="stylesheet" href="batchInvoice.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>批量开票</h1>
+            <div class="header-buttons">
+                <button id="back-btn">返回</button>
+            </div>
+        </div>
+        <div class="search-section">
+            <div class="search-field">
+                <label for="search-ticket-id">票据ID</label>
+                <input type="text" id="search-ticket-id" placeholder="输入票据ID">
+            </div>
+            <div class="search-field">
+                <label for="search-date">日期</label>
+                <input type="date" id="search-date">
+            </div>
+            <div class="search-field">
+                <label for="search-customer">客户名称</label>
+                <input type="text" id="search-customer" placeholder="输入客户名称">
+            </div>
+            <div class="search-field">
+                <label for="search-amount">金额</label>
+                <input type="number" id="search-amount" step="0.01" placeholder="输入金额">
+            </div>
+            <button id="search-confirm-btn">查询</button>
+            <button id="search-reset-btn">恢复</button>
+        </div>
+        <div class="content">
+            <div class="left-container">
+                <h2>待开票小票</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th id="thTicketId">票据ID</th>
+                                <th id="thDatetime">日期时间</th>
+                                <th id="thCustomer">客户</th>
+                                <th id="thAmount">金额</th>
+                                <th id="thOperation">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="left-ticket-list"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="right-container">
+                <h2>已选小票</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th id="thOperation">操作</th>
+                                <th id="thTicketId">票据ID</th>
+                                <th id="thDatetime">日期时间</th>
+                                <th id="thCustomer">客户</th>
+                                <th id="thAmount">金额</th>
+                            </tr>
+                        </thead>
+                        <tbody id="right-ticket-list"></tbody>
+                    </table>
+                </div>
+                <div class="summary">
+                    <p>总金额: <span id="total-amount">0.00</span></p>
+                </div>
+            </div>
+        </div>
+        <button id="batch-invoice-btn">确认开票</button>
+    </div>
+
+    <!-- 客户选择模态框 -->
+    <div id="customer-selection-modal" class="modal customer-selection-modal" style="display: none;">
+        <div class="modal-content">
+            <h2>选择客户</h2>
+            <p>请输入客户信息以完成开票：</p>
+            <form id="customer-selection-form">
+                <div class="form-group">
+                    <label for="company-name">公司名称:</label>
+                    <input type="text" id="company-name" class="autocomplete-customer" required>
+                </div>
+                <div class="form-group">
+                    <label for="trade-name">商业名称:</label>
+                    <input type="text" id="trade-name" class="autocomplete-customer">
+                </div>
+                <div class="form-group">
+                    <label for="tax-id">税号:</label>
+                    <input type="text" id="tax-id" class="autocomplete-customer" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">电话:</label>
+                    <input type="tel" id="phone" class="autocomplete-customer">
+                </div>
+                <div class="modal-buttons">
+                    <button type="button" class="modal-close-btn" data-index="0">关闭</button>
+                    <button type="submit" class="modal-confirm-btn" data-index="1">确认</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="batchInvoice.js"></script>
+</body>
+</html>
