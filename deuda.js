@@ -141,6 +141,14 @@ function showSearchModal() {
                 <label>${isChinese ? '金额' : 'Monto'}</label>
                 <input type="number" id="search-amount" step="0.01" placeholder="${isChinese ? '输入金额' : 'Ingrese monto'}">
             </div>
+            <div class="search-field">
+                <label>${isChinese ? '开始时间' : 'Fecha de Inicio'}</label>
+                <input type="datetime-local" id="search-start-date">
+            </div>
+            <div class="search-field">
+                <label>${isChinese ? '结束时间' : 'Fecha de Fin'}</label>
+                <input type="datetime-local" id="search-end-date">
+            </div>
             <button id="search-confirm-btn">${isChinese ? '确定' : 'Confirmar'}</button>
         </div>
     `;
@@ -166,6 +174,8 @@ function applySearchFilters() {
     const debtId = document.getElementById('search-debt-id').value.trim().toLowerCase();
     const customer = document.getElementById('search-customer').value.trim().toLowerCase();
     const amount = parseFloat(document.getElementById('search-amount').value);
+    const startDate = document.getElementById('search-start-date').value;
+    const endDate = document.getElementById('search-end-date').value;
     const debts = loadDebts();
     const filteredDebts = debts.filter(debt => {
         let match = true;
@@ -177,6 +187,20 @@ function applySearchFilters() {
         }
         if (!isNaN(amount) && debt.amount !== amount) {
             match = false;
+        }
+        if (startDate) {
+            const debtDate = new Date(debt.datetime);
+            const start = new Date(startDate);
+            if (debtDate < start) {
+                match = false;
+            }
+        }
+        if (endDate) {
+            const debtDate = new Date(debt.datetime);
+            const end = new Date(endDate);
+            if (debtDate > end) {
+                match = false;
+            }
         }
         return match;
     });

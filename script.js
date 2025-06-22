@@ -613,6 +613,7 @@ function showCashPaymentModal() {
                 ${[1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '.', '←'].map((item, index) => `
                     <button class="numeric-btn ${item === '←' ? 'delete' : item === '.' ? 'dot' : ''}" 
                             data-index="${index}"
+                            data-value="${item}"
                             onclick="updateCashAmount(this, '${item}', ${totalAmount})">
                         ${item}
                     </button>
@@ -653,15 +654,39 @@ function showCashPaymentModal() {
         button.addEventListener('keydown', keydownHandler);
     });
 
-    // 添加键盘输入处理（0-9 和 .）
+    // 添加键盘输入处理（0-9、.、Backspace、Enter 和 Esc）
     const numericKeyHandler = (event) => {
         const key = event.key;
-        if (/^[0-9]$/.test(key) || key === '.') {
+        if (/^[0-9]$/.test(key)) {
             event.preventDefault(); // 阻止默认输入行为
-            const button = modal.querySelector(`.numeric-btn:not(.delete):not(.dot)[data-index="${key === '.' ? 10 : parseInt(key)}"]`) ||
-                           modal.querySelector(`.numeric-btn.dot[data-index="10"]`);
+            // 查找对应数字的按钮
+            const button = modal.querySelector(`.numeric-btn[data-value="${key}"]`);
             if (button) {
-                button.click(); // 模拟点击对应的数字或小数点按钮
+                button.click(); // 模拟点击对应的数字按钮
+            }
+        } else if (key === '.') {
+            event.preventDefault();
+            const button = modal.querySelector(`.numeric-btn.dot[data-value="."]`);
+            if (button) {
+                button.click(); // 模拟点击小数点按钮
+            }
+        } else if (key === 'Backspace') {
+            event.preventDefault();
+            const button = modal.querySelector(`.numeric-btn.delete[data-value="←"]`);
+            if (button) {
+                button.click(); // 模拟点击删除按钮
+            }
+        } else if (key === 'Enter') {
+            event.preventDefault();
+            const button = modal.querySelector('.confirm-btn');
+            if (button) {
+                button.click(); // 模拟点击确认按钮
+            }
+        } else if (key === 'Escape') {
+            event.preventDefault();
+            const button = modal.querySelector('.modal-close-btn');
+            if (button) {
+                button.click(); // 模拟点击关闭按钮
             }
         }
     };
